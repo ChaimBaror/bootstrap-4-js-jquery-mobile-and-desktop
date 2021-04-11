@@ -13,7 +13,6 @@ const data = [
 let itemDesktop = data[0];
 let itemMobile = data[0];
 
-
 function menuItemsList() {
     DesktopHtml = '';
     data.map(data => {
@@ -30,7 +29,6 @@ function menuItemsListOfMobile() {
     return DesktopHtml;
 }
 
-
 function menuItemsSelect() {
     DesktopHtml = '<select name="menu" id="myselect" >';
     data.map(data => {
@@ -38,6 +36,7 @@ function menuItemsSelect() {
     })
     return DesktopHtml + "</select>";
 }
+
 function menuItemsSelectMobile() {
     DesktopHtml = '<select name="menu" id="myselectMobile" >';
     data.map(data => {
@@ -45,7 +44,6 @@ function menuItemsSelectMobile() {
     })
     return DesktopHtml + "</select>";
 }
-
 
 
 function clickedDesktop(eventId) {
@@ -86,7 +84,6 @@ function showMobilepHTML() {
      <div class="showItemsMobile">
      <div >${itemMobile.name}</div>
      <div  ><img src=${itemMobile.img} class="rounded" alt="..."></div>
-
      </div>`)
 
 }
@@ -114,7 +111,7 @@ $(document).ready(function(){
                 $(this).attr("src", "assets/phone-desctop.png")
             })
             $(".desktopMenu").html(menuItemsList())
-            $(".mobileMenu").html(menuItemsList())
+            $(".mobileMenu").html(menuItemsListOfMobile())
     
         }
         else {
