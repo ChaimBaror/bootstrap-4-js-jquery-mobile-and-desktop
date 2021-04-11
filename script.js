@@ -96,38 +96,52 @@ $(".mobileMenu").html(menuItemsListOfMobile())
 showDesktopHTML()
 showMobilepHTML()
 
-$(window).resize(function () {
 
-    var width = $(window).width();
-    if (width > 600) {
-        $("#desktop #imgDesktop").each(function (index) {
-            $(this).attr("src", "assets/desktop-desktop.png")
-        })
-        $("#mobile #imgMobile").each(function (index) {
-            $(this).attr("src", "assets/phone-desctop.png")
-        })
-        $(".desktopMenu").html(menuItemsList())
-        $(".mobileMenu").html(menuItemsList())
+$(document).ready(function(){
+    WidthChange();
+    $(window).resize(function(){
+        WidthChange();
+    });
 
-    }
-    else {
-        $("#desktop #imgDesktop").each(function (index) {
-            $(this).attr("src", "assets/desktop-mobile.png")
-        })
-        $("#mobile #imgMobile").each(function (index) {
-            $(this).attr("src", "assets/phone-mobile.png")
-        })
-        $(".desktopMenu").html(menuItemsSelect())
-        $(".mobileMenu").html(menuItemsSelectMobile())
-        $( "#myselect" ).change(function() {
-            clickedDesktop(this.value)
-          });
-          $( "#myselectMobile" ).change(function() {
-            clickedOfMobile(this.value)
-          });
+    function WidthChange() {
 
+        var width = $(window).width();
+        if (width > 600) {
+            $("#desktop #imgDesktop").each(function (index) {
+                $(this).attr("src", "assets/desktop-desktop.png")
+            })
+            $("#mobile #imgMobile").each(function (index) {
+                $(this).attr("src", "assets/phone-desctop.png")
+            })
+            $(".desktopMenu").html(menuItemsList())
+            $(".mobileMenu").html(menuItemsList())
+    
+        }
+        else {
+            $("#desktop #imgDesktop").each(function (index) {
+                $(this).attr("src", "assets/desktop-mobile.png")
+            })
+            $("#mobile #imgMobile").each(function (index) {
+                $(this).attr("src", "assets/phone-mobile.png")
+            })
+            $(".desktopMenu").html(menuItemsSelect())
+            $(".mobileMenu").html(menuItemsSelectMobile())
+            $( "#myselect" ).change(function() {
+                clickedDesktop(this.value)
+              });
+              $( "#myselectMobile" ).change(function() {
+                clickedOfMobile(this.value)
+              });
+    
+        }
     }
 });
+    
+
+
+
+
+   
 
 
 
