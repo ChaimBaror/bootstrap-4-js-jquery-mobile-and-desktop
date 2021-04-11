@@ -1,0 +1,77 @@
+body {
+    background: linear-gradient(to top,  #cccc 20%, #fff 70%);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.title{
+    border: 1px  darkgray dashed;
+    margin: 3px;
+    text-align: center;
+   
+}
+
+div img {
+    width: 100%;
+    min-height: 100%;
+}
+
+.desktop {
+
+    background:chartreuse;
+    /* background-image: url(assets/desktop-desktop.png); */
+  /* height: 500px; */
+  width: 350px;
+
+
+}
+.mobile{
+
+    background:coral;
+    /* background-image: url(assets/phone-mobile.png); */
+   /* height: 100%; */
+   width: 350px;
+
+}
+
+.list{
+    border: 1px  darkgray dashed;
+    margin: 3px;
+    background:black;
+    color: blanchedalmond;
+    text-align: center;
+}
+
+.active{
+    background: rgb(105, 18, 40);
+
+}
+
+.menu :hover{
+background: rgb(67, 67, 199)
+}
+.menu :active{
+    background: rgb(105, 18, 40);
+    }
+.showItems{
+    background: #cccc;
+    height: 124px;
+    width: 231px;
+    position: absolute;
+    top: 19px;
+    left: 111px;
+}
+.showItemsMobile{
+    background: beige;
+    height: 503px;
+    width: 310px;
+    position: absolute;
+    top: 106px;
+    left: 35px;
+}
+
+@media only screen and (max-width: 600px) {
+    .mobile-100 {height:100vh;
+    }
+  }
