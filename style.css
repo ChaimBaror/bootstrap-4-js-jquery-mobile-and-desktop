@@ -5,11 +5,14 @@ body {
     text-align: center;
 }
 
+.containe{
+    text-align: center;
+    direction: 'rtl'
+}
 .title{
-    border: 1px  darkgray dashed;
+    border: 1px darkgray dashed;
     margin: 3px;
     text-align: center;
-   
 }
 
 div img {
@@ -19,22 +22,22 @@ div img {
 
 .desktop {
   width: 350px;
+  padding:  50px;
 }
 .mobile{
-   width: 350px;
-}
+   width: 250px;
+padding: 50px;}
 
 .list{
-    border: 1px  darkgray dashed;
     margin: 3px;
-    background:black;
-    color: blanchedalmond;
-    text-align: center;
+    background: black;
+    color: #ffff;
+    font-size: 1.5rem;
+    width: 200px;
 }
 
 .active{
-    background: rgb(105, 18, 40);
-
+    background: red;
 }
 
 .menu :hover{
@@ -44,20 +47,23 @@ background: rgb(67, 67, 199)
     background: rgb(105, 18, 40);
     }
 .showItems{
-    background: #cccc;
-    height: 124px;
-    width: 231px;
+    background: #fff;
+    height: 89px;
+    width: 174px;
     position: absolute;
-    top: 19px;
-    left: 111px;
+    top: 66px;
+    left: 142px;
 }
 .showItemsMobile{
     background: beige;
-    height: 503px;
-    width: 310px;
+    height: 235px;
+    width: 123px;
     position: absolute;
-    top: 106px;
-    left: 35px;
+    top: 90px;
+    left: 80px;
+}
+.imageDssktop{
+    padding: 0px;
 }
 
 @media only screen and (max-width: 600px) {
