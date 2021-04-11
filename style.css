@@ -65,8 +65,15 @@ background: rgb(67, 67, 199)
 .imageDssktop{
     padding: 0px;
 }
+.imgRounded {
+    border-radius: 1.25rem;
+}
 
-@media only screen and (max-width: 600px) {
+.mobileMenu{
+    padding: 0 50px 50px 50px;
+}
+
+/* @media only screen and (max-width: 600px) {
     .mobile-100 {height:100vh;
     }
-  }
+  } */

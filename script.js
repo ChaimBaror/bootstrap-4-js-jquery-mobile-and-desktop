@@ -82,7 +82,7 @@ function showDesktopHTML() {
 }
 function showMobilepHTML() {
     $(".mobile").html( `<div id="mobile"> 
-     <img id="imgMobile" src="assets/phone-desctop.png" class="rounded" alt="" >
+     <img id="imgMobile" src="assets/phone-desctop.png" class="imgRounded" alt="" >
      <div class="showItemsMobile">
      <div >${itemMobile.name}</div>
      <div  ><img src=${itemMobile.img} class="rounded" alt="..."></div>
@@ -97,6 +97,7 @@ showDesktopHTML()
 showMobilepHTML()
 
 $(window).resize(function () {
+
     var width = $(window).width();
     if (width > 600) {
         $("#desktop #imgDesktop").each(function (index) {
@@ -107,8 +108,6 @@ $(window).resize(function () {
         })
         $(".desktopMenu").html(menuItemsList())
         $(".mobileMenu").html(menuItemsList())
-        // document.querySelector('.desktopMenu').innerHTML = menuItemsList()
-        // document.querySelector('.desktopMenu').innerHTML = menuItemsList()
 
     }
     else {
@@ -120,18 +119,17 @@ $(window).resize(function () {
         })
         $(".desktopMenu").html(menuItemsSelect())
         $(".mobileMenu").html(menuItemsSelectMobile())
-        // document.querySelector('.desktopMenu').innerHTML = menuItemsSelect()
         $( "#myselect" ).change(function() {
-            // alert( this.value );
             clickedDesktop(this.value)
           });
           $( "#myselectMobile" ).change(function() {
-            // alert( this.value );
             clickedOfMobile(this.value)
           });
 
     }
 });
+
+
 
 
 
