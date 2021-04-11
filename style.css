@@ -18,21 +18,10 @@ div img {
 }
 
 .desktop {
-
-    background:chartreuse;
-    /* background-image: url(assets/desktop-desktop.png); */
-  /* height: 500px; */
   width: 350px;
-
-
 }
 .mobile{
-
-    background:coral;
-    /* background-image: url(assets/phone-mobile.png); */
-   /* height: 100%; */
    width: 350px;
-
 }
 
 .list{
@@ -51,7 +40,7 @@ div img {
 .menu :hover{
 background: rgb(67, 67, 199)
 }
-.menu :active{
+.list :active{
     background: rgb(105, 18, 40);
     }
 .showItems{
