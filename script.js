@@ -16,7 +16,7 @@ let itemMobile = data[0];
 function menuItemsList() {
     DesktopHtml = '';
     data.map(data => {
-        DesktopHtml += `<div class="list" onclick=clickedDesktop(${data.id})>${data.name} </div>`;
+        DesktopHtml += `<div class="list clickedDesktop" onclick=clickedDesktop(${data.id})>${data.name} </div>`;
     })
     return DesktopHtml;
 }
@@ -50,8 +50,8 @@ function clickedDesktop(eventId) {
     itemDesktop = data.find(x => x.id == eventId)
     showDesktopHTML()
     $(document).ready(function () {
-        $(".list").click(function () {
-            $(".list").removeClass("active");
+        $(".clickedDesktop").click(function () {
+            $(".clickedDesktop").removeClass("active");
             $(this).addClass("active");
         });
     });
