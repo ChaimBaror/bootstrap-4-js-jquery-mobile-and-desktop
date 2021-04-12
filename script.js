@@ -9,7 +9,7 @@ $(document).ready(function () {
     });
 
     $(".clickedDesktop").click(function () {
-        console.log("clickedDesktop",$(this).text());
+        console.log("clickedDesktop", $(this).text());
         $(".clickedDesktop").removeClass("active");
         $(this).addClass("active");
     });
@@ -67,20 +67,20 @@ let itemDesktop = data[0];
 let itemMobile = data[0];
 
 function menuItemsList() {
-    return DesktopHtml = data.map(data => {
+    return data.map(data => {
         return `<div class="list clickedDesktop" value=${data.id} onclick=clickedDesktop(${data.id})>${data.name} </div>`;
     })
 }
 
 function menuItemsListOfMobile() {
-    return DesktopHtml = data.map(data => {
-        return `<div class="list listOfMobile" onclick=clickedOfMobile(${data.id})>${data.name} </div>`;
+    return data.map(data => {
+        return `<div class="list listOfMobile"  onclick=clickedOfMobile(${data.id})>${data.name} </div>`;
     })
 }
 
 function menuItemsSelect() {
-    DesktopHtml = `<select name="menu" id="myselect">
-    <option value="" selected disabled hidden>Choose here</option>`;
+    let DesktopHtml = `<select name="menu" class="btn btn-outline-secondary dropdown-toggle" id="myselect">
+    <option value="" selected disabled hidden>Choose here Desktop</option>`;
     data.map(data => {
         DesktopHtml += `<option value="${data.id}">${data.name}</option>`;
     })
@@ -88,12 +88,12 @@ function menuItemsSelect() {
 }
 
 function menuItemsSelectMobile() {
-    DesktopHtml = `<select name="menu" id="myselectMobile">
-    <option value="" selected disabled hidden>Choose here</option>`;
+    let MobileHtml = `<select name="menu" class="btn btn-outline-secondary dropdown-toggle" id="myselectMobile">
+    <option value="" selected disabled hidden>Choose here Mobile</option>`;
     data.map(data => {
-        DesktopHtml += `<option value="${data.id}">${data.name}</option>`;
+        MobileHtml += `<option value="${data.id}">${data.name}</option>`;
     })
-    return DesktopHtml + "</select>";
+    return MobileHtml + "</select>";
 }
 
 
