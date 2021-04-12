@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+    height: 100%; 
 }
 
 .containe{
@@ -24,9 +25,13 @@ div img {
   width: 350px;
   padding:  50px;
 }
+
 .mobile{
    width: 250px;
-padding: 50px;}
+   padding: 50px;
+   margin: 0 0 0 55px
+}
+
 
 .list{
     margin: 3px;
@@ -40,12 +45,7 @@ padding: 50px;}
     background: red;
 }
 
-.menu :hover{
-background: rgb(67, 67, 199)
-}
-.list :active{
-    background: rgb(105, 18, 40);
-    }
+
 .showItems{
     background: #fff;
     height: 89px;
@@ -59,21 +59,19 @@ background: rgb(67, 67, 199)
     height: 235px;
     width: 123px;
     position: absolute;
-    top: 90px;
-    left: 80px;
+    top: 86px;
+    left: 133px;
+    border-radius: 8px;
 }
 .imageDssktop{
-    padding: 0px;
+    padding: 0;
+    margin: 0;
 }
 .imgRounded {
     border-radius: 1.25rem;
 }
 
-.mobileMenu{
-    padding: 0 50px 50px 50px;
+.menu{
+    padding: 0 0px 50px 0px;
 }
 
-/* @media only screen and (max-width: 600px) {
-    .mobile-100 {height:100vh;
-    }
-  } */

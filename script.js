@@ -1,3 +1,56 @@
+$(document).ready(function () {
+
+    WidthChange();
+    showDesktopHTML()
+    showMobilepHTML()
+
+    $(window).resize(function () {
+        WidthChange();
+    });
+
+    $(".clickedDesktop").click(function () {
+        console.log("clickedDesktop",$(this).text());
+        $(".clickedDesktop").removeClass("active");
+        $(this).addClass("active");
+    });
+    $(".listOfMobile").click(function () {
+        $(".listOfMobile").removeClass("active");
+        $(this).addClass("active");
+    });
+});
+function WidthChange() {
+
+    if ($(window).width() > 600) {
+        $("#desktop #imgDesktop").each(function (index) {
+            $(this).attr("src", "assets/desktop-desktop.png")
+        })
+        $("#imgMobile").each(function (index) {
+            $(this).attr("src", "assets/phone-desctop.png")
+        })
+        $(".desktopMenu").html(menuItemsList())
+        $(".mobileMenu").html(menuItemsListOfMobile())
+
+    }
+    else {
+        $("#desktop #imgDesktop").each(function (index) {
+            $(this).attr("src", "assets/desktop-mobile.png")
+        })
+        $("#mobile #imgMobile").each(function (index) {
+            $(this).attr("src", "assets/phone-mobile.png")
+        })
+        $(".desktopMenu").html(menuItemsSelect())
+        $(".mobileMenu").html(menuItemsSelectMobile())
+        $("#myselect").change(function () {
+            clickedDesktop(this.value)
+        });
+        $("#myselectMobile").change(function () {
+            clickedOfMobile(this.value)
+        });
+
+    }
+}
+
+
 const data = [
     { id: 1, name: "דסקטופ", value: "דסקטופ", img: "https://www.israelhayom.co.il/sites/default/files/styles/566x349/public/images/articles/2020/12/16/16081297527953_b.jpeg" },
     { id: 2, name: "מגה פלאזמה וידאו", value: "", img: "https://unfurlmedia.com/wp-content/uploads/2019/03/DIGITAL-MARKETING-TOOLS.jpg" },
@@ -14,23 +67,20 @@ let itemDesktop = data[0];
 let itemMobile = data[0];
 
 function menuItemsList() {
-    DesktopHtml = '';
-    data.map(data => {
-        DesktopHtml += `<div class="list clickedDesktop" onclick=clickedDesktop(${data.id})>${data.name} </div>`;
+    return DesktopHtml = data.map(data => {
+        return `<div class="list clickedDesktop" value=${data.id} onclick=clickedDesktop(${data.id})>${data.name} </div>`;
     })
-    return DesktopHtml;
 }
 
 function menuItemsListOfMobile() {
-    DesktopHtml = '';
-    data.map(data => {
-        DesktopHtml += `<div class="list listOfMobile" onclick=clickedOfMobile(${data.id})>${data.name} </div>`;
+    return DesktopHtml = data.map(data => {
+        return `<div class="list listOfMobile" onclick=clickedOfMobile(${data.id})>${data.name} </div>`;
     })
-    return DesktopHtml;
 }
 
 function menuItemsSelect() {
-    DesktopHtml = '<select name="menu" id="myselect" >';
+    DesktopHtml = `<select name="menu" id="myselect">
+    <option value="" selected disabled hidden>Choose here</option>`;
     data.map(data => {
         DesktopHtml += `<option value="${data.id}">${data.name}</option>`;
     })
@@ -38,7 +88,8 @@ function menuItemsSelect() {
 }
 
 function menuItemsSelectMobile() {
-    DesktopHtml = '<select name="menu" id="myselectMobile" >';
+    DesktopHtml = `<select name="menu" id="myselectMobile">
+    <option value="" selected disabled hidden>Choose here</option>`;
     data.map(data => {
         DesktopHtml += `<option value="${data.id}">${data.name}</option>`;
     })
@@ -49,96 +100,43 @@ function menuItemsSelectMobile() {
 function clickedDesktop(eventId) {
     itemDesktop = data.find(x => x.id == eventId)
     showDesktopHTML()
-    $(document).ready(function () {
-        $(".clickedDesktop").click(function () {
-            $(".clickedDesktop").removeClass("active");
-            $(this).addClass("active");
-        });
-    });
 }
 
 function clickedOfMobile(eventId) {
     itemMobile = data.find(x => x.id == eventId)
     showMobilepHTML()
-    $(document).ready(function () {
-        $(".listOfMobile").click(function () {
-            $(".listOfMobile").removeClass("active");
-            $(this).addClass("active");
-        });
-    });
 }
 
 
 function showDesktopHTML() {
-    $(".desktop").html( `<div id="desktop">
+    $(".desktop").html(`<div id="desktop">
      <img id="imgDesktop" src="assets/desktop-desktop.png" class="rounded" alt="">
      <div class="showItems row">
-     <div class="col-4">${itemDesktop.name}</div>
-     <div  class="col-8"> <img class="imageDssktop" src=${itemDesktop.img}  alt="..."></div>
+     <div class="col-0 col-sm-4">${itemDesktop.name}</div>
+     <div  class="col-8 col-sm-8"> <img class="imageDssktop" src=${itemDesktop.img}  alt="..."></div>
      </div>
      </div>`)
 }
+
 function showMobilepHTML() {
-    $(".mobile").html( `<div id="mobile"> 
+    $(".mobile").html(`<div id="mobile"> 
      <img id="imgMobile" src="assets/phone-desctop.png" class="imgRounded" alt="" >
      <div class="showItemsMobile">
      <div >${itemMobile.name}</div>
      <div  ><img src=${itemMobile.img} class="rounded" alt="..."></div>
+     <div >${itemMobile.name}</div>
+     <div  ><img src=${itemMobile.img} class="rounded" alt="..."></div>
      </div>`)
-
 }
-$(".desktopMenu").html(menuItemsList())
-$(".mobileMenu").html(menuItemsListOfMobile())
-
-showDesktopHTML()
-showMobilepHTML()
-
-
-$(document).ready(function(){
-    WidthChange();
-    $(window).resize(function(){
-        WidthChange();
-    });
-
-    function WidthChange() {
-
-        var width = $(window).width();
-        if (width > 600) {
-            $("#desktop #imgDesktop").each(function (index) {
-                $(this).attr("src", "assets/desktop-desktop.png")
-            })
-            $("#mobile #imgMobile").each(function (index) {
-                $(this).attr("src", "assets/phone-desctop.png")
-            })
-            $(".desktopMenu").html(menuItemsList())
-            $(".mobileMenu").html(menuItemsListOfMobile())
-    
-        }
-        else {
-            $("#desktop #imgDesktop").each(function (index) {
-                $(this).attr("src", "assets/desktop-mobile.png")
-            })
-            $("#mobile #imgMobile").each(function (index) {
-                $(this).attr("src", "assets/phone-mobile.png")
-            })
-            $(".desktopMenu").html(menuItemsSelect())
-            $(".mobileMenu").html(menuItemsSelectMobile())
-            $( "#myselect" ).change(function() {
-                clickedDesktop(this.value)
-              });
-              $( "#myselectMobile" ).change(function() {
-                clickedOfMobile(this.value)
-              });
-    
-        }
-    }
-});
-    
 
 
 
 
-   
+
+
+
+
+
 
 
 
